@@ -1,0 +1,22 @@
+.Header {
+  display: grid;
+  grid-template-columns: 0.25fr 5fr;
+  height: 5rem;
+  margin: 0;
+  padding: 0;
+
+  &__Logo {
+    height: 5rem;
+    background-color: #5b0000;
+    padding: 5px;
+  }
+  &__Title {
+    height: 100%;
+    color: #fff;
+    background-color: #5b0000;
+    font-weight: 600;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+}

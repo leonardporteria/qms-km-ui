@@ -1,0 +1,111 @@
+<div class="Sidebar">
+  <!-- Logo Toggle -->
+  <div
+    class="Sidebar__Logo"
+    [ngClass]="{ mini: isMiniSidebar }"
+    (click)="toggleSidebar.emit()"
+  >
+    <img *ngIf="!isMiniSidebar" src="PUP_TYPOG.png" alt="Full Logo" />
+    <mat-icon *ngIf="isMiniSidebar">menu</mat-icon>
+  </div>
+
+  <div class="Sidebar__Divider">
+    <mat-divider></mat-divider>
+  </div>
+
+  <!-- User Dropdown -->
+  <div class="Sidebar__User" [ngClass]="{ mini: isMiniSidebar }">
+    <img class="Sidebar__User__Avatar" src="PUPLogo.png" alt="User Avatar" />
+
+    <ng-container *ngIf="!isMiniSidebar">
+      <span class="Sidebar__User__Name">John Doe</span>
+      <mat-icon
+        class="Sidebar__User__Chevron"
+        [matMenuTriggerFor]="userMenu"
+        (menuOpened)="onMenuOpened()"
+        (menuClosed)="onMenuClosed()"
+      >
+        {{ isUserMenuOpen ? 'expand_less' : 'expand_more' }}
+      </mat-icon>
+    </ng-container>
+  </div>
+
+  <mat-menu #userMenu="matMenu">
+    <button mat-menu-item>Profile</button>
+    <button mat-menu-item>Logout</button>
+  </mat-menu>
+
+  <div class="Sidebar__Divider">
+    <mat-divider></mat-divider>
+  </div>
+
+  <!-- Navigation Links -->
+  <mat-nav-list class="Sidebar__Links">
+    <a
+      mat-list-item
+      routerLink="/dashboard"
+      routerLinkActive="active-link"
+      (click)="navigateAndCloseSidebar()"
+    >
+      <div class="Sidebar__Link__Content">
+        <mat-icon>dashboard</mat-icon>
+        <p *ngIf="!isMiniSidebar">Dashboard</p>
+      </div>
+    </a>
+
+    <a
+      mat-list-item
+      routerLink="/users"
+      routerLinkActive="active-link"
+      (click)="navigateAndCloseSidebar()"
+    >
+      <div class="Sidebar__Link__Content">
+        <mat-icon>group</mat-icon>
+        <p *ngIf="!isMiniSidebar">Manage User</p>
+      </div>
+    </a>
+
+    <a
+      mat-list-item
+      routerLink="/sector"
+      routerLinkActive="active-link"
+      (click)="navigateAndCloseSidebar()"
+    >
+      <div class="Sidebar__Link__Content">
+        <mat-icon>pie_chart</mat-icon>
+        <p *ngIf="!isMiniSidebar">Sector</p>
+      </div>
+    </a>
+
+    <a
+      mat-list-item
+      routerLink="/office"
+      routerLinkActive="active-link"
+      (click)="navigateAndCloseSidebar()"
+    >
+      <div class="Sidebar__Link__Content">
+        <mat-icon>business_center</mat-icon>
+        <p *ngIf="!isMiniSidebar">Office</p>
+      </div>
+    </a>
+
+    <a
+      mat-list-item
+      routerLink="/process"
+      routerLinkActive="active-link"
+      (click)="navigateAndCloseSidebar()"
+    >
+      <div class="Sidebar__Link__Content">
+        <mat-icon>repeat</mat-icon>
+        <p *ngIf="!isMiniSidebar">Process</p>
+      </div>
+    </a>
+  </mat-nav-list>
+</div>
+
+<!-- Toggle -->
+<div class="Sidebar__Toggle" (click)="toggleSidebar.emit()">
+  <button *ngIf="!isMiniSidebar">
+    <mat-icon>{{ isMiniSidebar ? 'chevron_right' : 'chevron_left' }}</mat-icon>
+  </button>
+</div>
