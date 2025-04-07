@@ -1,0 +1,28 @@
+.spacer {
+  flex: 1 1 auto;
+}
+
+.App {
+  height: 100vh;
+  position: relative;
+  &__Drawer {
+    height: 100%;
+    border-radius: 0 1rem 1rem 0;
+    overflow: visible;
+    box-shadow: 5px 1px 8px rgba(0, 0, 0, 0.1);
+  }
+
+  &__Content {
+    &__Header {
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
+    &__Main {
+      padding: 1rem;
+      height: 200vh;
+    }
+    &__Footer {
+    }
+  }
+}
